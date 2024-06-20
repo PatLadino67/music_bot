@@ -16,17 +16,19 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'  # Cambia a la versión de Python que necesitas
+        python-version: '3.0'  # Cambia a la versión de Python que necesitas
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt  # Ajuste de ruta
 
+    - name: Install Railway CLI
+      run: npm install -g railway
+
     - name: Deploy to Railway
       env:
         RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
       run: |
-        curl -sL https://railway.app/install | bash
         railway login --token $RAILWAY_API_TOKEN
         railway up --env production
