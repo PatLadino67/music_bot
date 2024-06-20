@@ -1,4 +1,7 @@
-discord.py
-youtube_dl
+discord.py==1.7.3
+Flask
+requests
+urllib3
 spotipy
-ffmpeg-python
+yt-dlp
+PyNaCl
