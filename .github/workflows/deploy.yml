@@ -28,11 +28,9 @@ jobs:
 
     - name: Configure Railway Authentication
       env:
-        RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
+        RAILWAY_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
       run: |
-        mkdir -p ~/.railway
-        echo $RAILWAY_API_TOKEN > ~/.railway/service-token
-        railway login --service-token $RAILWAY_API_TOKEN
+        echo $RAILWAY_TOKEN > ~/.railway/service-token
 
     - name: Deploy to Railway
       run: railway up --environment production
