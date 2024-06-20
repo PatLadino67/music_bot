@@ -27,9 +27,12 @@ jobs:
       run: npm install -g @railway/cli
 
     - name: Configure Railway Authentication
+      env:
+        RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
       run: |
         mkdir -p ~/.railway
-        echo "${{ secrets.RAILWAY_API_TOKEN }}" > ~/.railway/service-token
+        echo $RAILWAY_API_TOKEN > ~/.railway/service-token
+        railway login --service-token $RAILWAY_API_TOKEN
 
     - name: Deploy to Railway
       run: railway up --environment production
