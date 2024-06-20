@@ -34,6 +34,11 @@ jobs:
         RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
       run: echo $RAILWAY_API_TOKEN > ~/.railway/token
 
+    - name: Link Railway Project
+      env:
+        RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
+      run: railway link --project YOUR_PROJECT_ID --service YOUR_SERVICE_ID
+
     - name: Deploy to Railway
       env:
         RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
