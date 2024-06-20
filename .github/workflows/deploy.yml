@@ -24,7 +24,7 @@ jobs:
         pip install -r requirements.txt  # Ajuste de ruta
 
     - name: Install Railway CLI
-      run: npm install -g railway
+      run: npm install -g @railway/cli
 
     - name: Deploy to Railway
       env:
